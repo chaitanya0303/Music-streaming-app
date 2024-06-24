@@ -18,7 +18,7 @@ function Wishlist() {
 
     // Fetch all items
     axios
-      .get(`http://localhost:7000/wishlist/${user.id}`)
+      .get(`https://musicbackend-feog.onrender.com/wishlist/${user.id}`)
       .then((response) => {
         const taskData = response.data;
         setItems(taskData);
@@ -136,7 +136,7 @@ function Wishlist() {
                   </td>
                   <td>
                   <audio controls id={`audio-${item._id}`} style={{ width: '250px' }}>
-                  <source src={`http://localhost:7000/${item.songUrl}`} />
+                  <source src={`https://musicbackend-feog.onrender.com/${item.songUrl}`} />
                 </audio>
                   </td>
                 </tr>
