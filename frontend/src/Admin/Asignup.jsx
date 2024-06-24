@@ -15,7 +15,7 @@ const Asignup = () => {
     let payload = { name, email, password };
 
     axios
-      .post("http://localhost:7000/asignup", payload)
+      .post("https://musicbackend-feog.onrender.com/asignup", payload)
       .then((result) =>{
         alert('Account created')
         console.log(result)
