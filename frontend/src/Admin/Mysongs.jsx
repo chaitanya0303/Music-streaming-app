@@ -21,7 +21,7 @@ function Mysongs() {
 
     // Fetch all items
     axios
-      .get(`http://localhost:7000/mysongs`)
+      .get(`https://musicbackend-feog.onrender.com/mysongs`)
       .then((response) => {
         const taskData = response.data;
         setItems(taskData);
@@ -31,13 +31,13 @@ function Mysongs() {
       });
 
     // Fetch wishlist items
-    axios.get(`http://localhost:7000/wishlist/${user.id}`)
+    axios.get(`https://musicbackend-feog.onrender.com/wishlist/${user.id}`)
     .then((response) => {
       const wishlistData = response.data;
       setWishlist(wishlistData);
     });
 
-    axios.get(`http://localhost:7000/playlist/${user.id}`)
+    axios.get(`https://musicbackend-feog.onrender.com/playlist/${user.id}`)
     .then((response) => {
         const playlistData = response.data;
         setPlaylist(playlistData);
@@ -94,10 +94,10 @@ function Mysongs() {
       const userName = JSON.parse(localStorage.getItem('user')).name;
 
       // Add item to the wishlist
-      await axios.post(`http://localhost:7000/wishlist/add`, { itemId: itemId2, title, image, userId, userName,songUrl,singer,genre });
+      await axios.post(`https://musicbackend-feog.onrender.com/wishlist/add`, { itemId: itemId2, title, image, userId, userName,songUrl,singer,genre });
 
       // Refresh the wishlist items
-      const response = await axios.get(`http://localhost:7000/wishlist/${userId}`);
+      const response = await axios.get(`https://musicbackend-feog.onrender.com/wishlist/${userId}`);
       setWishlist(response.data);
     } catch (error) {
       console.error('Error adding item to wishlist: ', error);
@@ -107,12 +107,12 @@ function Mysongs() {
   const removeFromWishlist = async (itemId) => {   
     try {
       // Remove item from the wishlist
-      await axios.post(`http://localhost:7000/wishlist/remove`, { itemId });
+      await axios.post(`https://musicbackend-feog.onrender.com/wishlist/remove`, { itemId });
 
       // Refresh the wishlist items
       const user = JSON.parse(localStorage.getItem('user'));
       if (user) {
-        const response = await axios.get(`http://localhost:7000/wishlist/${user.id}`);
+        const response = await axios.get(`https://musicbackend-feog.onrender.com/wishlist/${user.id}`);
         setWishlist(response.data);
       } else {
         console.log('ERROR: User not found');
@@ -142,10 +142,10 @@ function Mysongs() {
       const userName = JSON.parse(localStorage.getItem('user')).name;
 
       // Add item to the wishlist
-      await axios.post(`http://localhost:7000/playlist/add`, { itemId: itemId2, title, image, userId, userName,songUrl,singer,genre });
+      await axios.post(`https://musicbackend-feog.onrender.com/playlist/add`, { itemId: itemId2, title, image, userId, userName,songUrl,singer,genre });
 
       // Refresh the wishlist items
-      const response = await axios.get(`http://localhost:7000/playlist/${userId}`);
+      const response = await axios.get(`https://musicbackend-feog.onrender.com/playlist/${userId}`);
       setPlaylist(response.data);
       alert("Song Added To Playlist")
     } catch (error) {
@@ -156,12 +156,12 @@ function Mysongs() {
   const removeFromPlaylist = async (itemId) => {   
     try {
       // Remove item from the wishlist
-      await axios.post(`http://localhost:7000/playlist/remove`, { itemId });
+      await axios.post(`https://musicbackend-feog.onrender.com/playlist/remove`, { itemId });
 
       // Refresh the wishlist items
       const user = JSON.parse(localStorage.getItem('user'));
       if (user) {
-        const response = await axios.get(`http://localhost:7000/playlist/${user.id}`);
+        const response = await axios.get(`https://musicbackend-feog.onrender.com/playlist/${user.id}`);
         setPlaylist(response.data);
       alert("Song Removed From Playlist")
 
@@ -235,7 +235,7 @@ function Mysongs() {
                 <p className="text-gray-700 mb-2">Genre: {item.genre}</p>
                 <p className="text-teal-700 font-bold">Singer: {item.singer}</p>
                 <audio controls id={`audio-${item._id}`} style={{ width: '250px' }}>
-                  <source src={`http://localhost:7000/${item.songUrl}`} />
+                  <source src={`https://musicbackend-feog.onrender.com/${item.songUrl}`} />
                 </audio>
               </div>
               <div>
