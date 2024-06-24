@@ -10,7 +10,7 @@ const Uitem = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        axios.get(`http://localhost:4000/item/${id}`)
+        axios.get(`https://musicbackend-feog.onrender.com/item/${id}`)
             .then((resp) => {
                 console.log(resp);
                 setItem(resp.data); // Set item to the fetched data (an object, not an array)
