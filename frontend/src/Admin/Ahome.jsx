@@ -13,7 +13,7 @@ function Ahome() {
 
   useEffect(() => {
     // Fetch user data
-    axios.get(`http://localhost:4000/users`)
+    axios.get(`https://musicbackend-feog.onrender.com/users`)
       .then((response) => {
         setUsers(response.data);
       })
