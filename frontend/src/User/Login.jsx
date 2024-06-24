@@ -16,7 +16,7 @@ const Login = () => {
     e.preventDefault();
     let payload = { email, password };
     axios
-      .post("http://localhost:7000/login", payload)
+      .post("https://musicbackend-feog.onrender.com/login", payload)
       .then((res) => {
         console.log("login: " + res.data.Status);
         if (res.data.Status === "Success") {
