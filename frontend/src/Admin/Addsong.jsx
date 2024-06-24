@@ -43,7 +43,7 @@ const handleSubmit = async (e) => {
       // Use 'songUrl' as the field name
       formDataToSend.append('songUrl', formData.songUrl);
   
-      const response = await axios.post('http://localhost:7000/addsong', formDataToSend);
+      const response = await axios.post('https://musicbackend-feog.onrender.com/addsong', formDataToSend);
       console.log(response.data); // Log the server response
   
       alert('Song added successfully');
