@@ -13,7 +13,7 @@ function Playlist() {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
       axios
-        .get(`http://localhost:7000/playlist/${user.id}`)
+        .get(`https://musicbackend-feog.onrender.com/playlist/${user.id}`)
         .then((response) => {
           const playlistData = response.data;
           setPlaylist(playlistData);
@@ -60,7 +60,7 @@ function Playlist() {
 
   const removeFromPlaylist = async (itemId) => {
     try {
-      await axios.post(`http://localhost:7000/playlist/remove`, { itemId });
+      await axios.post(`https://musicbackend-feog.onrender.com/playlist/remove`, { itemId });
       const user = JSON.parse(localStorage.getItem('user'));
       if (user) {
         const response = await axios.get(`http://localhost:7000/playlist/${user.id}`);
@@ -151,7 +151,7 @@ function Playlist() {
                   <td>{item.genre}</td>
                   <td>
                     <audio controls id={`audio-${item._id}`} style={{ width: '280px' }}>
-                      <source src={`http://localhost:7000/${item.songUrl}`} />
+                      <source src={`https://musicbackend-feog.onrender.com/${item.songUrl}`} />
                     </audio>
                   </td>
                   <td>
